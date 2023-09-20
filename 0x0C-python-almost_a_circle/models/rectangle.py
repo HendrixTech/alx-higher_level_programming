@@ -1,25 +1,14 @@
 #!/usr/bin/python3
-"""This module defines a rectangle that inherits from the Base class"""
+"""This module contains a rectangle class"""
+
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Represent a rectangle"""
+    """Represents a rectangle """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize a new Rectangle.
-                Args:
-                    width (int): The width of the new Rectangle.
-                    height (int): The height of the new Rectangle.
-                    x (int): The x coordinate of the new Rectangle.
-                    y (int): The y coordinate of the new Rectangle.
-                    id (int): The identity of the new Rectangle.
-                Raises:
-                    TypeError: If either of width or height is not an int.
-                    ValueError: If either of width or height <= 0.
-                    TypeError: If either of x or y is not an int.
-                    ValueError: If either of x or y < 0.
-        """
+        """Initializes attributes of the object"""
         self.width = width
         self.height = height
         self.x = x
@@ -51,7 +40,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """Sets the value for width"""
-        if type(value) is not int:
+        if (type(value) is not int):
             raise TypeError("width must be an integer")
 
         if value <= 0:
@@ -62,7 +51,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """Sets the value for height"""
-        if type(value) is not int:
+        if (type(value) is not int):
             raise TypeError("height must be an integer")
 
         if value <= 0:
@@ -73,7 +62,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """Sets the value for x"""
-        if type(value) is not int:
+        if (type(value) is not int):
             raise TypeError("x must be an integer")
 
         if value < 0:
@@ -84,7 +73,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """Sets the value for y"""
-        if type(value) is not int:
+        if (type(value) is not int):
             raise TypeError("y must be an integer")
 
         if value < 0:
@@ -93,37 +82,28 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """Defines the rectangle using # """
-        return self.__height * self.__width
+        """Defines the area of the rectangle"""
+        return (self.__height * self.__width)
 
     def display(self):
-        """Prints the rectangle using #"""
+        """Displays the rectangle using # """
         for y in range(self.y):
             print("")
-
         for row in range(self.__height):
             for x in range(self.x):
                 print(" ", end="")
             for column in range(self.__width):
                 print("#", end="")
-            print("")
+            print()
 
     def __str__(self):
-        """Return the dictionary representations of a Rectangle"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.__width, self.__height)
+        """Defines a format for the string representation of the class"""
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
+{self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
-        """Assigns an argument to each attribute
-        Update the Rectangle.
-                Args:
-                    *args (ints): New attribute values.
-                        - 1st argument represents id attribute
-                        - 2nd argument represents width attribute
-                        - 3rd argument represent height attribute
-                        - 4th argument represents x attribute
-                        - 5th argument represents y attribute
-                    **kwargs (dict): New key/value pairs of attributes.
-        """
+        """Assigns an argument to each attribute"""
+
         if args and len(args) != 0:
             a = 0
             for arg in args:
