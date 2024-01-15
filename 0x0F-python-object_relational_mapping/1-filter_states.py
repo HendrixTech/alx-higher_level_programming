@@ -8,7 +8,7 @@ N (upper N) from the database hbtn_0e_0_usa.
 import MySQLdb as db
 from sys import argv
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     """
     Access the database and lists filtered list
     of states
@@ -23,8 +23,7 @@ if __name__ == "__main__":
     db_cursor = db_connect.cursor()
 
     db_cursor.execute(
-            "SELECT * FROM states \
-                    WHERE LEFT(name, 1) = 'N' \
+            "SELECT * FROM states WHERE name LIKE BINARY 'N%' \
                     ORDER BY states.id ASC")
 
     rows_selected = db_cursor.fetchall()
