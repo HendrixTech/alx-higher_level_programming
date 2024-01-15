@@ -18,7 +18,7 @@ if __name__ == '__main__':
             user=argv[1],
             passwd=argv[2],
             db=argv[3],
-            port=3306);
+            port=3306)
 
     db_cursor = db_connect.cursor()
 
