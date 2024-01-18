@@ -8,6 +8,7 @@ definition of a 'City'
 from sqlalchemy import Column, String, Integer, ForeignKey
 from relationship_state import Base, State
 
+
 class City(Base):
     """City class
     Attr:
